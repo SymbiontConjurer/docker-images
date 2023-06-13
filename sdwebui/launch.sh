@@ -92,6 +92,6 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install wheel opencv-python-headless
 
-export COMMANDLINE_ARGS="--share --xformers --listen --no-half --no-half-vae --precision=full$@"
+export COMMANDLINE_ARGS="--xformers --listen $@"
 export TORCH_COMMAND="pip install torch==2.0.0+cu117 torchvision==0.15.1+cu117 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu117"
 bash ./webui.sh -f
