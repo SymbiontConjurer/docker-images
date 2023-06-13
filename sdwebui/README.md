@@ -24,11 +24,11 @@ sudo systemctl restart docker
 Pull and run image
 
 ```
-sudo docker run --rm -it --init --runtime=nvidia --gpus=all --ipc=host --name sdwebui -p 7860:7860 --volume $PWD:/data symbionconjurer/sdwebui:latest --listen 
+sudo docker run --rm -it --init --runtime=nvidia --gpus=all --ipc=host --name sdwebui -p 7860:7860 --volume $PWD:/data symbiontconjurer/sdwebui:latest --listen 
 ```
 
 If you want to run in full precision use this instead:
 
 ```
-sudo docker run --rm -it --init --runtime=nvidia --gpus=all --ipc=host --name sdwebui -p 7860:7860 --volume $PWD:/data symbionconjurer/sdwebui:latest --listen --no-half --no-half-vae --precision=full
+sudo docker run --rm -it --init --runtime=nvidia --gpus=all --ipc=host --name sdwebui -p 7860:7860 --volume $PWD:/data symbiontconjurer/sdwebui:latest --listen --no-half --no-half-vae --precision=full
 ```
