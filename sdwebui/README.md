@@ -2,7 +2,7 @@
 
 To start, launch an instance using your cloud instance dashboard.
 
-SSH into machine:
+SSH into machine with port forwarding:
 
 ```
 ssh -L:7860:localhost:7860 ubuntu@<machine IP>
@@ -24,13 +24,26 @@ sudo systemctl restart docker
 Pull and run image
 
 ```
-sudo docker run --rm -it --init --runtime=nvidia --gpus=all --ipc=host --name sdwebui -p 7860:7860 --volume $PWD:/data symbiontconjurer/sdwebui:latest --listen 
+sudo docker run --rm -it --init --runtime=nvidia --gpus=all --ipc=host --name sdwebui -p 7860:7860 --volume $PWD:/data symbiontconjurer/sdwebui:latest
 ```
 
-If you want to run in full precision use this instead:
+# Command Line Args
+Extra command line args are passed through from `docker run` to the Automatic1111 execution script.
+
+## Example: Full Precision
+
+If you want to run in full precision, you could run this instead:
 
 ```
-sudo docker run --rm -it --init --runtime=nvidia --gpus=all --ipc=host --name sdwebui -p 7860:7860 --volume $PWD:/data symbiontconjurer/sdwebui:latest --listen --no-half --no-half-vae --precision=full
+sudo docker run --rm -it --init --runtime=nvidia --gpus=all --ipc=host --name sdwebui -p 7860:7860 --volume $PWD:/data symbiontconjurer/sdwebui:latest --no-half --no-half-vae --precision=full
+```
+
+## Example: Gradio
+
+If you want to expose your Web UI using a Gradio tunnel:
+
+```
+sudo docker run --rm -it --init --runtime=nvidia --gpus=all --ipc=host --name sdwebui -p 7860:7860 --volume $PWD:/data symbiontconjurer/sdwebui:latest --share
 ```
 
 # Notes
