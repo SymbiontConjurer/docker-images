@@ -26,6 +26,9 @@ embedding_urls=(
     "https://civitai.com/api/download/models/77169" # BadDream + UnrealisticDream (negative embeddings)
 )
 
+# TODO: Extension URLs
+# https://github.com/Bing-su/adetailer
+
 # Clone the repo
 echo "Cloning the repo"
 git clone -b "v1.3.0-RC" https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
